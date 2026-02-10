@@ -3,6 +3,7 @@ title: MoltHome
 status: active
 oneliner: Crowdsourced compute for AI agents
 description: "Everyone's buying $600 Mac Minis to run OpenClaw agents 24/7. Meanwhile, millions of machines sit idle 20 hours a day. MoltHome connects people who want to run agent workloads with people who have spare compute. Think Airbnb for your CPU — except your guest is an autonomous AI that never sleeps and never complains about the towels."
+draft: true
 date: 2026-02-05
 week: 2
 order: 1

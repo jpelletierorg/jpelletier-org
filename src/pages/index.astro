@@ -25,8 +25,8 @@ const activeProjects = projects.filter(p => p.data.status === 'active');
       <img src="/avatar.png" alt="Jonathan Pelletier">
       <div class="identity-text">
         <div class="links-row">
-          <a href="https://x.com/" target="_blank" rel="noopener">X / Twitter</a>
-          <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://x.com/jpelletierorg" target="_blank" rel="noopener">X / Twitter</a>
+          <a href="https://github.com/jpelletierorg" target="_blank" rel="noopener">GitHub</a>
           <a href="mailto:j@jpelletier.org">Email</a>
         </div>
       </div>
@@ -46,26 +46,30 @@ const activeProjects = projects.filter(p => p.data.status === 'active');
   <!-- CURRENT BUILDS -->
   <div class="grid-section">
     <div class="section-label">Cogitating ideas</div>
-    <div class="builds-grid">
-      {activeProjects.map((project) => (
-        <a href={`/projects/${project.id}`} class="build-link">
-          <div class="build-block">
-            <div class="build-header">
-              <span class="build-name">{project.data.title}</span>
-              <span class="badge">ACTIVE</span>
+    {activeProjects.length > 0 ? (
+      <div class="builds-grid">
+        {activeProjects.map((project) => (
+          <a href={`/projects/${project.id}`} class="build-link">
+            <div class="build-block">
+              <div class="build-header">
+                <span class="build-name">{project.data.title}</span>
+                <span class="badge">ACTIVE</span>
+              </div>
+              <div class="build-oneliner">{project.data.oneliner}</div>
+              <div class="build-desc">{project.data.description}</div>
+              <div class="build-footer">
+                {project.data.milestones.length > 0 && (
+                  <span class="build-milestone">Latest: {project.data.milestones[project.data.milestones.length - 1].text}</span>
+                )}
+                <span class="build-arrow">&rarr;</span>
+              </div>
             </div>
-            <div class="build-oneliner">{project.data.oneliner}</div>
-            <div class="build-desc">{project.data.description}</div>
-            <div class="build-footer">
-              {project.data.milestones.length > 0 && (
-                <span class="build-milestone">Latest: {project.data.milestones[project.data.milestones.length - 1].text}</span>
-              )}
-              <span class="build-arrow">&rarr;</span>
-            </div>
-          </div>
-        </a>
-      ))}
-    </div>
+          </a>
+        ))}
+      </div>
+    ) : (
+      <div class="builds-empty">The lab is quiet. Something is brewing.</div>
+    )}
   </div>
 
   <!-- GRAVEYARD -->
@@ -285,6 +289,13 @@ const activeProjects = projects.filter(p => p.data.status === 'active');
     transition: color 0.15s;
   }
   .grave-link:hover .grave-arrow { color: var(--red); }
+  .builds-empty {
+    font-size: 0.9rem;
+    color: var(--fg-dim);
+    font-style: italic;
+    padding: 1.5rem;
+    border: 2px solid var(--border);
+  }
   .grave-empty {
     font-size: 0.9rem;
     color: var(--fg-dim);
