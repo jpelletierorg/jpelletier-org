@@ -1,0 +1,68 @@
+---
+interface Props {
+  title: string;
+}
+const { title } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title} — Jonathan Pelletier</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+</head>
+<body>
+  <div class="page">
+    <slot />
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <a href="/" class="footer-home">JP</a>
+      <div><span>2026</span></div>
+    </div>
+  </div>
+</body>
+</html>
+
+<style is:global>
+  @import '../styles/global.css';
+</style>
+
+<style>
+  .footer {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75rem;
+    font-weight: 900;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--fg-dim);
+  }
+  .footer span { color: var(--red); }
+  .footer-home {
+    color: var(--fg-dim);
+    text-decoration: none;
+    border: 2px solid var(--border);
+    padding: 0.3em 0.6em;
+    transition: all 0.1s;
+  }
+  .footer-home:hover {
+    background: var(--red);
+    border-color: var(--red);
+    color: var(--bg);
+    text-decoration: none;
+  }
+
+  @media (max-width: 700px) {
+    .footer {
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: center;
+    }
+  }
+</style>
