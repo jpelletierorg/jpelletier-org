@@ -4,7 +4,6 @@ status: active
 oneliner: An AI-staffed internet radio station
 description: "An experiment in organizing AI agents to build and operate a digital product — end to end, autonomously. The product is a radio station. The staff is entirely artificial. The question is whether a small syndicate of coordinated agents can source content, write scripts, generate audio, and broadcast a continuous stream with minimal human intervention."
 date: 2026-02-20
-repo: https://github.com/jpelletierorg/kslop
 order: 2
 milestones:
   - date: "2026-02-20"
